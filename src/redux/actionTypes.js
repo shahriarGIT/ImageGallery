@@ -1,0 +1,10 @@
+export const LOAD_IMAGES = "LOAD_IMAGES";
+export const ERROR_LOADING_IMAGE = "ERROR_LOADING_IMAGE";
+export const TOGGLE_IMAGE_LOADING = "TOGGLE_IMAGE_LOADING";
+
+// Auth 
+export const AUTH_SUCCESS = "AUTH_SUCCESS";
+export const AUTH_LOADING = "AUTH_LOADING";
+export const AUTH_FAILED = "AUTH_FAILED";
+
+export const AUTH_LOGOUT = "AUTH_LOGOUT";
