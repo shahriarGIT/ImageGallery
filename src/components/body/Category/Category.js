@@ -2,34 +2,34 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchData, fetchComments } from '../../../redux/actionCreators';
 import { CardColumns, Modal, ModalBody, ModalFooter, Button } from 'reactstrap';
-import ImageItem from "./ImageItem.js";
-import FullImage from './FullImage';
+import ImageItem from "../home/ImageItem";
+import FullImage from '../home/FullImage';
 import LoadComments from '../loadComments/LoadComments';
-import CommentForm from '../commentForm/CommentForm.js';
+import CommentForm from '../commentForm/CommentForm';
+import './Category.css';
 
 
 const mapStateToProps = state => {
     return {
         images: state.images,
-        token: state.token,
-        comments: state.comments
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchData: () => dispatch(fetchData()),
-        fetchComments: () => dispatch(fetchComments())
+        fetchData: () => dispatch(fetchData())
     }
 }
 
 
 
-class Home extends Component {
+class Category extends Component {
+
 
     state = {
         selectedImage: null,
-        modalOpen: false
+        modalOpen: false,
+        categoryState: null,
     }
 
 
@@ -46,8 +46,12 @@ class Home extends Component {
 
     componentDidUpdate = () => {
         // this.props.fetchComments();
+
     }
 
+    chooseCategory = category => {
+        this.setState({ categoryState: category })
+    }
 
 
 
@@ -63,7 +67,11 @@ class Home extends Component {
 
         // console.log(this.props.images);
 
-        let imageCards = this.props.images.map(item => {
+        let filteredImg = this.props.images.filter(item => item.catagory === this.state.categoryState)
+
+        console.log(filteredImg);
+
+        let imageCards = filteredImg.map(item => {
             return (
                 <ImageItem
                     image={item}
@@ -81,10 +89,21 @@ class Home extends Component {
                 item={this.state.selectedImage}
             />
         }
-
+        console.log(this.state);
         return (
             <div className="container">
+                <div>
+                    <Button onClick={() => this.chooseCategory("nature")} style={{ padding: "0px", color: "#41729F", backgroundColor: "white", fontSize: "1.5rem", margin: "2% 3% 2% 0%" }} size="sm" className="button-css" > Nature</Button>
+                    <Button onClick={() => this.chooseCategory("abstract")} style={{ padding: "0px", color: "#41729F", backgroundColor: "white", fontSize: "1.5rem", margin: "2% 3% 2% 0%" }} size="sm" className="button-css"> Abstract</Button>
+                    <Button onClick={() => this.chooseCategory("animal")} style={{ padding: "0px", color: "#41729F", backgroundColor: "white", fontSize: "1.5rem", margin: "2% 3% 2% 0%" }} size="sm" className="button-css"> Animal</Button>
+                </div>
+
                 <div className="row">
+
+
+
+
+
                     <CardColumns>
                         {imageCards}
                     </CardColumns>
@@ -105,6 +124,4 @@ class Home extends Component {
     }
 }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
-
+export default connect(mapStateToProps, mapDispatchToProps)(Category);

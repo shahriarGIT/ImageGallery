@@ -30,6 +30,9 @@ const Navigation = props => {
                     <NavLink exact to="/Home" className="NavLink">Home</NavLink>
                 </NavItem>
                 <NavItem>
+                    <NavLink exact to="/Category" className="NavLink">Category</NavLink>
+                </NavItem>
+                <NavItem>
                     <NavLink exact to="/Login" className="NavLink">Login</NavLink>
                 </NavItem>
             </Nav>
@@ -43,7 +46,9 @@ const Navigation = props => {
                 <NavItem>
                     <NavLink exact to="/Home" className="NavLink">Home</NavLink>
                 </NavItem>
-
+                <NavItem>
+                    <NavLink exact to="/Category" className="NavLink">Category</NavLink>
+                </NavItem>
                 <NavItem>
                     <NavLink exact to="/Logout" className="NavLink">Logout</NavLink>
                 </NavItem>

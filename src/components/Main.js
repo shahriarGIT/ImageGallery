@@ -4,6 +4,7 @@ import Home from "./body/home/Home.js"
 import Login from './body/login/Login.js';
 import Signup from './body/login/Signup.js';
 import Logout from './body/login/Logout';
+import Category from './body/Category/Category';
 
 import { connect } from "react-redux";
 import { authCheck } from "../redux/authCreators"
@@ -41,6 +42,7 @@ class Main extends Component {
             routes = (
                 <Switch>
                     <Route path="/Home" component={Home} />
+                    <Route path="/Category" component={Category} />
                     <Route path="/Login" component={Login} />
                     <Route path="/Signup" component={Signup} />
                     <Route to="/" exact component={Home} />
@@ -52,6 +54,7 @@ class Main extends Component {
             routes = (
                 <Switch>
                     <Route path="/Home" component={Home} />
+                    <Route path="/Category" component={Category} />
                     <Route path="/logout" component={Logout} />
                     <Route to="/" exact component={Home} />
                     <Redirect to="/" />

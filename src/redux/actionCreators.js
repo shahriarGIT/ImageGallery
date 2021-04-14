@@ -34,3 +34,80 @@ export const fetchData = () => dispatch => {
         })
 
 }
+
+
+// Comments 
+
+export const load = (imageName, userName, comment) => dispatch => {
+
+    addComment(imageName, userName, comment);
+
+    dispatch(fetchComments());
+
+}
+
+export const addComment = (imageName, userName, comment, token) => {
+
+    const data = {
+        imageName: imageName,
+        userName: userName,
+        comment: comment,
+    }
+
+    axios.post("https://imagegallery-72dca-default-rtdb.firebaseio.com/comments.json?auth=" + token, data)
+        .then(response => {
+            //  console.log(response.config.data)
+
+        })
+        .catch(err => {
+            console.log("error no auth");
+        })
+
+}
+
+
+export const commentsLoading = bool => {
+    return {
+        type: actionTypes.COMMENTS_LOADING,
+        payload: bool
+    }
+}
+
+export const loadComments = comments => {
+    return {
+        type: actionTypes.LOAD_COMMENTS,
+        payload: comments
+    }
+}
+
+export const fetchComments = () => dispatch => {
+    //dispatch(commentsLoading(true));
+
+
+    //const queryParams = '&orderBy="comments"&equalTo="' + imageName + '"';
+
+    axios.get("https://imagegallery-72dca-default-rtdb.firebaseio.com/comments.json?")
+        .then(response => {
+            //dispatch(commentsLoading(false));
+
+            //console.log(response.data);
+
+            let arr = [];
+            for (let key in response.data) {
+
+                arr.push({
+                    ...response.data[key],
+                    id: key
+                })
+            }
+
+            dispatch(loadComments(arr));
+
+        })
+        .catch(err => {
+            console.log("error here");
+        })
+}
+
+
+

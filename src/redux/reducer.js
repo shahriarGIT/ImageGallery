@@ -10,6 +10,7 @@ const INITIAL_STATE = {
     commentLoading: false,
     commentLoadFailedMsg: null,
 
+
     token: null,
     userId: null,
     authLoading: false,
@@ -63,6 +64,20 @@ export const reducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 token: null,
                 userId: null,
+            }
+
+        //comment
+
+        case actionTypes.COMMENTS_LOADING:
+            return {
+                ...state,
+                commentLoading: action.payload
+            }
+
+        case actionTypes.LOAD_COMMENTS:
+            return {
+                ...state,
+                comments: action.payload
             }
 
         default:
