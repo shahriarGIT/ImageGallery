@@ -39,9 +39,14 @@ class CommentForm extends Component {
                     }
 
                     onSubmit={
-                        (values) => {
+                        (values, { setSubmitting, resetForm }) => {
                             //if (this.props.token !== null) {
                             addComment(this.props.item.name, values.userName, values.comment, this.props.token);
+
+
+                            resetForm();
+
+
                             //this.props.load(this.props.item.name, values.userName, values.comment);
 
                             // }

@@ -25,7 +25,7 @@ const ImageItem = props => {
                 </CardBody>
                 <CardFooter style={{ padding: "2%" }}>
                     Name :  {props.image.name}   <br />
-                    Catagory :  {props.image.catagory}
+                    Catagory :  {props.image.category}
                 </CardFooter>
             </Card>
         </div>

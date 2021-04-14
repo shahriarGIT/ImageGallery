@@ -67,7 +67,7 @@ class Category extends Component {
 
         // console.log(this.props.images);
 
-        let filteredImg = this.props.images.filter(item => item.catagory === this.state.categoryState)
+        let filteredImg = this.props.images.filter(item => item.category === this.state.categoryState)
 
         console.log(filteredImg);
 
@@ -93,9 +93,9 @@ class Category extends Component {
         return (
             <div className="container">
                 <div>
-                    <Button onClick={() => this.chooseCategory("nature")} style={{ padding: "0px", color: "#41729F", backgroundColor: "white", fontSize: "1.5rem", margin: "2% 3% 2% 0%" }} size="sm" className="button-css" > Nature</Button>
-                    <Button onClick={() => this.chooseCategory("abstract")} style={{ padding: "0px", color: "#41729F", backgroundColor: "white", fontSize: "1.5rem", margin: "2% 3% 2% 0%" }} size="sm" className="button-css"> Abstract</Button>
-                    <Button onClick={() => this.chooseCategory("animal")} style={{ padding: "0px", color: "#41729F", backgroundColor: "white", fontSize: "1.5rem", margin: "2% 3% 2% 0%" }} size="sm" className="button-css"> Animal</Button>
+                    <Button onClick={() => this.chooseCategory("Nature")} style={{ padding: "0px", color: "#41729F", backgroundColor: "white", fontSize: "1.5rem", margin: "2% 3% 2% 0%" }} size="sm" className="button-css" > Nature</Button>
+                    <Button onClick={() => this.chooseCategory("Abstract")} style={{ padding: "0px", color: "#41729F", backgroundColor: "white", fontSize: "1.5rem", margin: "2% 3% 2% 0%" }} size="sm" className="button-css"> Abstract</Button>
+                    <Button onClick={() => this.chooseCategory("Animal")} style={{ padding: "0px", color: "#41729F", backgroundColor: "white", fontSize: "1.5rem", margin: "2% 3% 2% 0%" }} size="sm" className="button-css"> Animal</Button>
                 </div>
 
                 <div className="row">
